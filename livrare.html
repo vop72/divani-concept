@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept livrare, credit, garanție</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/pages.css">
+<style>
+.svc{display:grid;grid-template-columns:240px 1fr;gap:64px;align-items:start;padding-top:28px}
+.side{position:sticky;top:100px;display:grid;gap:2px}
+.side a{padding:12px 16px;border-left:2px solid var(--line);color:var(--muted)}
+.side a.on{border-color:var(--ink);color:var(--ink);font-weight:500}
+.side .help{margin-top:24px;background:var(--tile);padding:18px;font-size:14px;color:var(--muted)}
+.side .help b{display:block;color:var(--ink);font-weight:500;margin-bottom:4px}
+.blk{padding-bottom:88px;border-bottom:1px solid var(--line);margin-bottom:56px;scroll-margin-top:100px}
+.blk:last-child{border:0}
+.blk h1,.blk h2.big{font-size:clamp(32px,3.4vw,50px);font-weight:300;margin:10px 0 18px}
+.blk h3{font-size:22px;font-weight:400;margin:48px 0 18px}
+.calc{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;background:var(--tile);padding:24px;margin-top:24px}
+.calc .res{text-align:right}
+.calc .res b{display:block;font-size:34px;font-weight:300;font-variant-numeric:tabular-nums}
+.calc .res span{font-size:13px;color:var(--muted)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cols div{background:var(--tile);padding:24px}
+.cols b{font-weight:500;display:block;margin-bottom:10px}
+.cols ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:6px;font-size:15px}
+.partners{display:flex;gap:12px;flex-wrap:wrap}
+.partners span{border:1px solid var(--ink);padding:14px 22px;font-weight:500}
+@media (max-width:1100px){
+  .svc{grid-template-columns:1fr;gap:0}
+  .side{position:sticky;top:64px;z-index:5;background:var(--bg);display:flex;overflow-x:auto;gap:0;margin:0 -32px;padding:0 32px;border-bottom:1px solid var(--line);scrollbar-width:none}
+  .side a{border-left:0;border-bottom:2px solid transparent;white-space:nowrap;padding:14px 14px}
+  .side a.on{border-color:var(--ink)}
+  .side .help{display:none}
+  .blk{padding-top:28px}
+  .cols{grid-template-columns:1fr}
+}
+@media (max-width:560px){.side{margin:0 -16px;padding:0 16px}.calc{grid-template-columns:1fr}.calc .res{text-align:left}}
+</style>
+</head>
+<body>
+<div id="shell-top"></div>
+<main class="wrap">
+  <div class="crumbs"><a href="index.html">Acasă</a>/<span>Cumpărători</span></div>
+  <div class="svc">
+    <nav class="side" id="side" aria-label="Informații cumpărători">
+      <a href="#livrare" class="on">Livrare și montaj</a>
+      <a href="#credit">Mobilă în credit</a>
+      <a href="#garantie">Garanție și returnare</a>
+      <div class="help"><b>Ai o întrebare?</b>Creator Mall +373 79 900 027<br>Decor Park +373 78 300 027</div>
+    </nav>
+
+    <div>
+      <section class="blk" id="livrare">
+        <span class="eyebrow">Livrare</span>
+        <h1>Livrare și montaj în Chișinău și în toată Moldova</h1>
+        <p class="lead">Specialiștii noștri livrează, asamblează și montează mobilierul la locul indicat de tine.</p>
+        <div class="facts" style="margin-top:28px">
+          <div><b>Gratuit</b><span>livrare și montaj în Chișinău</span></div>
+          <div><b>18 lei/km</b><span>livrare în afara Chișinăului</span></div>
+          <div><b>Gratuit</b><span>montaj în toată Moldova</span></div>
+          <div><b>~1 lună</b><span>producția unei comenzi</span></div>
+        </div>
+        <div class="calc">
+          <label class="field" for="km">Câți km sunt de la Chișinău până la tine?<input id="km" type="number" min="0" value="50" inputmode="numeric"></label>
+          <div class="res"><b id="cost">900 lei</b><span>livrare, montajul gratuit</span></div>
+        </div>
+        <h3>Cum decurge livrarea</h3>
+        <div class="steps">
+          <div><b>Ambalare</b><span>Mobilierul e ambalat și, unde e nevoie, dezasamblat pentru transport.</span></div>
+          <div><b>Oră convenită</b><span>Stabilim împreună o fereastră orară înainte de livrare.</span></div>
+          <div><b>Montaj complet</b><span>Specialiștii asamblează și instalează mobilierul la locul dorit.</span></div>
+          <div><b>Verificare</b><span>Verificăm toate mecanismele înainte de plecare.</span></div>
+        </div>
+        <h3>Întrebări frecvente</h3>
+        <div class="faq">
+          <details><summary>Urcatul la etaj e inclus?</summary><p>Serviciul greutăților și urcatul la etaj se calculează separat, în funcție de etaj și condiții.</p></details>
+          <details><summary>Pot ridica mobilierul singur?</summary><p>Da, direct de la fabrica noastră din Chișinău. Contactează-ne în prealabil pentru a stabili data și ora.</p></details>
+          <details><summary>Cât durează până la livrare?</summary><p>Mobilierul la comandă e gata în aproximativ o lună. Livrarea se programează imediat după finalizarea producției.</p></details>
+        </div>
+      </section>
+
+      <section class="blk" id="credit">
+        <span class="eyebrow">Credit</span>
+        <h2 class="big">Cumpără acum, plătește comod</h2>
+        <p class="lead">Orice produs Di'vani poate fi achiziționat în rate lunare egale, atât din stoc, cât și la comandă individuală.</p>
+        <div class="facts" style="margin-top:28px;grid-template-columns:repeat(3,1fr)">
+          <div><b>0%</b><span>până la 4 rate fără dobândă*</span></div>
+          <div><b>~15 min</b><span>dosarul, completat în showroom</span></div>
+          <div><b>Buletin</b><span>singurul act necesar</span></div>
+        </div>
+        <p style="font-size:13px;color:var(--muted)">* În funcție de condițiile partenerului și aprobarea cererii.</p>
+        <h3>Parteneri de creditare</h3>
+        <div class="partners"><span>MicroInvest</span><span>IuteCredit</span></div>
+        <h3>Cum funcționează</h3>
+        <div class="steps">
+          <div><b>Alegi modelul</b><span>Și configurația dorită, în showroom.</span></div>
+          <div><b>Completezi dosarul</b><span>Cu ajutorul consultantului, durează aproximativ 15 minute.</span></div>
+          <div><b>Plătești prima rată</b><span>După aprobare, comanda intră în producție.</span></div>
+          <div><b>Livrare și montaj</b><span>La data convenită.</span></div>
+        </div>
+      </section>
+
+      <section class="blk" id="garantie">
+        <span class="eyebrow">Garanție</span>
+        <h2 class="big">24 de luni garanție</h2>
+        <p class="lead">Termenul curge de la data cumpărării sau predării produsului către client. Fiecare produs vine cu pașaportul produsului.</p>
+        <div class="cols" style="margin-top:28px">
+          <div><b>Garanția acoperă</b><ul><li>Cadrul mobilei, la utilizare corectă.</li><li>Mecanismele de transformare, folosite conform instrucțiunilor și fără deteriorări mecanice.</li></ul></div>
+          <div><b>Garanția nu acoperă</b><ul><li>Utilizarea incorectă sau reparațiile fără acordul nostru.</li><li>Deteriorări mecanice, umiditate, temperaturi ridicate.</li><li>Uzura naturală a țesăturii, umpluturii și decorului.</li></ul></div>
+        </div>
+        <h3>Returnare</h3>
+        <p class="lead">Mobila cumpărată din salon (din stoc), care nu a fost fabricată la comandă individuală, poate fi returnată în 14 zile lucrătoare de la data cumpărării.</p>
+        <a class="btn ghost" href="#" style="margin-top:12px">Pașaportul produsului (PDF)</a>
+      </section>
+    </div>
+  </div>
+</main>
+<div id="shell-foot"></div>
+<script src="js/shell.js"></script>
+<script>
+const km=document.getElementById('km'),cost=document.getElementById('cost');
+const upd=()=>{const v=Math.max(0,+km.value||0);cost.textContent=(v*18).toLocaleString('ro-RO').replace(/\./g,' ')+' lei';};km.oninput=upd;upd();
+const links=[...document.querySelectorAll('#side a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>

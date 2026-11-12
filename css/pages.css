@@ -1,0 +1,57 @@
+/* Components for the secondary pages; builds on site.css tokens */
+.cartlink{position:relative}
+.cartlink i{position:absolute;top:-6px;right:-8px;background:var(--ink);color:var(--bg);font:500 10px/16px var(--font);width:16px;height:16px;text-align:center;font-style:normal}
+.page-head{padding:28px 0 40px}
+.page-head h1{font-size:clamp(36px,4.2vw,60px);font-weight:300;margin-top:10px}
+.page-head p{color:var(--muted);max-width:620px;margin:16px 0 0;font-size:18px}
+.sec{padding-top:88px}
+.sec h2{font-size:clamp(28px,2.6vw,40px);font-weight:300}
+.lead{color:var(--muted);max-width:62ch}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.ph-cover{background:var(--tile);overflow:hidden}
+.ph-cover img{width:100%;height:100%;object-fit:cover}
+/* white-background cutouts melt into the grey tile */
+.cut{background:var(--tile);display:grid;place-items:center;overflow:hidden}
+.cut img{mix-blend-mode:multiply;object-fit:contain;width:84%;height:84%}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.facts div{background:var(--bg);padding:24px}
+.facts b{display:block;font-size:30px;font-weight:300;line-height:1.1}
+.facts span{font-size:14px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s}
+.steps div{border-top:1px solid var(--ink);padding-top:16px;counter-increment:s}
+.steps div::before{content:"0" counter(s);display:block;color:var(--accent);font-weight:500;margin-bottom:8px}
+.steps b{display:block;font-weight:500;margin-bottom:4px}
+.steps span{color:var(--muted);font-size:15px}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:300;font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:12px 0 0;color:var(--muted)}
+.form{display:grid;gap:14px}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+.field input,.field select,.field textarea{font:400 16px var(--font);color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:13px 14px;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink)}
+.opt-row{display:grid;gap:8px}
+.opt-row label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);padding:14px 16px;cursor:pointer;font-size:15px}
+.opt-row label:has(input:checked){border-color:var(--ink);background:#fff6}
+.opt-row input{accent-color:var(--ink);margin-top:3px}
+.opt-row small{display:block;color:var(--muted);font-size:13px}
+.ok{display:none;background:var(--tile);padding:18px;font-size:15px}
+.ok.show{display:block}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:400 14px/1 var(--font);padding:10px 16px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+@media (max-width:1100px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .facts,.steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .page-head p{font-size:16px}
+  .sec{padding-top:64px}
+  .form .two{grid-template-columns:1fr}
+  .facts b{font-size:24px}
+  .steps{grid-template-columns:1fr}
+}

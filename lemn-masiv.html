@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept lemn masiv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/pages.css">
+<style>
+.mh{display:grid;grid-template-columns:1fr 1.2fr;gap:0;background:#2b2621;color:#efe9e2;margin-top:20px}
+.mh .t{padding:56px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.mh h1{font-size:clamp(36px,4.2vw,60px);font-weight:300;color:#fff}
+.mh p{color:#c9c0b6;margin:0;max-width:440px}
+.mh .eyebrow{color:#a99d90}
+.mh .cut{background:#3a332c}
+.mh .cut img{mix-blend-mode:normal;width:100%;height:100%;object-fit:cover}
+.mh .btn{background:#efe9e2;color:#2b2621;border-color:#efe9e2;align-self:flex-start}
+.mh .btn:hover{background:transparent;color:#efe9e2}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+.cc{display:grid;grid-template-rows:auto 1fr}
+.cc .cut{aspect-ratio:1/1}
+.cc b{font-weight:500;margin-top:12px;display:block}
+.cc span{font-size:13.5px;color:var(--muted)}
+.coll{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.coll div{border-top:1px solid var(--ink);padding-top:16px}
+.coll b{font-size:22px;font-weight:300;display:block;margin-bottom:6px}
+.coll span{color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px 16px;margin-top:28px}
+.grid .card .ph.cut img{width:78%;height:86%}
+@media (max-width:1100px){.mh{grid-template-columns:1fr}.mh .cut{aspect-ratio:4/3;order:-1}.mh .t{padding:32px}.cols4,.grid{grid-template-columns:1fr 1fr}.coll{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="shell-top"></div>
+<main class="wrap">
+  <div class="crumbs"><a href="index.html">Acasă</a>/<span>Lemn masiv</span></div>
+  <div class="mh">
+    <div class="t">
+      <span class="eyebrow">Colecții din frasin</span>
+      <h1>Mobilier din lemn masiv</h1>
+      <p>Paturi, mese, scaune și bănci din frasin masiv, în colecțiile Alton, Anvil și Alma. Finisaj mat, nuanțe de la natural la negru.</p>
+      <a class="btn" href="#produse">Vezi toate piesele</a>
+    </div>
+    <div class="cut"><img src="img/p-alton.webp" alt="Pat Alton din frasin"></div>
+  </div>
+
+  <section class="sec">
+    <span class="eyebrow">Ce cauți</span>
+    <h2 style="margin-top:10px">Piese din frasin, pe categorii</h2>
+    <div class="cols4">
+      <a class="cc" href="#"><div class="cut"><img src="img/p-alton.webp" alt=""></div><b>Paturi</b><span>Alton, mai multe nuanțe</span></a>
+      <a class="cc" href="#"><div class="cut"><img src="img/m-edna.webp" alt=""></div><b>Mese de dining</b><span>Edna, Acline</span></a>
+      <a class="cc" href="#"><div class="cut"><img src="img/m-nolan.webp" alt=""></div><b>Măsuțe de cafea</b><span>Angoli, Oslo, Nolan, Alton</span></a>
+      <a class="cc" href="#"><div class="cut"><img src="img/m-anvilbar.webp" alt=""></div><b>Scaune și bănci</b><span>Anvil, Alma, Alton</span></a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="eyebrow">Colecții</span>
+    <h2 style="margin-top:10px">Trei colecții, un singur lemn</h2>
+    <div class="coll">
+      <div><b>Alton</b><span>Paturi, scaune și măsuțe cu linii drepte. Paturile vin în mai multe nuanțe de frasin.</span></div>
+      <div><b>Anvil</b><span>Scaune, scaune de bar și bănci din frasin, cu cadru metalic.</span></div>
+      <div><b>Alma</b><span>Scaune de bar din frasin, cu forme mai moi.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="produse">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap">
+      <h2>Toate piesele din frasin</h2><span style="color:var(--muted);font-size:14px">Pozele pe fundal alb se îmbină automat cu fundalul plăcii</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="#"><div class="ph cut"><img src="img/p-alton.webp" alt=""></div><div class="meta"><div><h3>Alton</h3><div class="type">Pat, frasin masiv</div></div><div class="price">96 000 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph cut"><img src="img/m-edna.webp" alt=""></div><div class="meta"><div><h3>Edna</h3><div class="type">Masă de dining</div></div><div class="price">34 000 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph cut"><img src="img/m-acline.webp" alt=""></div><div class="meta"><div><h3>Acline</h3><div class="type">Masă de dining</div></div><div class="price">28 800 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph cut"><img src="img/m-bench.webp" alt=""></div><div class="meta"><div><h3>Anvil</h3><div class="type">Bancă</div></div><div class="price">12 800 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph cut"><img src="img/m-anvil.webp" alt=""></div><div class="meta"><div><h3>Anvil</h3><div class="type">Scaun de sufragerie</div></div><div class="price">7 000 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph cut"><img src="img/m-altonchair.webp" alt=""></div><div class="meta"><div><h3>Alton</h3><div class="type">Scaun de sufragerie</div></div><div class="price">8 800 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph cut"><img src="img/m-alma.webp" alt=""></div><div class="meta"><div><h3>Alma</h3><div class="type">Scaun de bar</div></div><div class="price">8 000 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/m-oslo.webp" alt=""></div><div class="meta"><div><h3>Oslo</h3><div class="type">Masă de cafea</div></div><div class="price">8 000 MDL</div></div></a>
+    </div>
+  </section>
+</main>
+<div id="shell-foot"></div>
+<script src="js/shell.js"></script>
+</body>
+</html>

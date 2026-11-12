@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept căutare și 404</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/pages.css">
+<style>
+.nf{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:56px 0 0}
+.nf .code{font-size:clamp(80px,12vw,180px);font-weight:300;line-height:.9;color:var(--accent)}
+.nf h1{font-size:clamp(28px,3vw,42px);font-weight:300;margin:16px 0 14px}
+.srch{display:flex;border:1px solid var(--ink);margin-top:24px}
+.srch input{flex:1;border:0;background:transparent;font:400 17px var(--font);padding:16px;color:var(--ink);min-width:0}
+.srch input:focus{outline:none}
+.srch button{border:0;background:var(--ink);color:var(--bg);padding:0 22px;font:500 14px var(--font);cursor:pointer}
+.sugg{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.sugg button{font:400 14px var(--font);border:1px solid var(--line);background:none;padding:8px 14px;cursor:pointer;color:var(--ink)}
+.sugg button:hover{border-color:var(--ink)}
+.res{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 16px;margin-top:28px}
+.empty{color:var(--muted);padding:20px 0}
+@media (max-width:1100px){.nf{grid-template-columns:1fr;gap:28px}.res{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="shell-top"></div>
+<main class="wrap">
+  <div class="nf">
+    <div>
+      <div class="code">404</div>
+      <h1>Pagina nu există, dar canapeaua potrivită sigur da</h1>
+      <p class="lead">Poate pagina a fost mutată. Caută modelul după nume sau tip.</p>
+      <form class="srch" id="sf" role="search"><label for="q" class="sr-only" style="position:absolute;left:-9999px">Caută</label><input id="q" placeholder="ex. extensibilă, Allure, pat" autocomplete="off"><button type="submit">Caută</button></form>
+      <div class="sugg"><button>Extensibilă</button><button>Colțar</button><button>Pat</button><button>Puma</button><button>Fotoliu</button></div>
+    </div>
+    <div class="ph-cover" style="aspect-ratio:4/3"><img src="img/l-sienna.webp" alt=""></div>
+  </div>
+  <section class="sec" style="padding-top:64px">
+    <h2 id="rt">Populare acum</h2>
+    <div class="res" id="res"></div>
+  </section>
+</main>
+<div id="shell-foot"></div>
+<script src="js/shell.js"></script>
+<script>
+const D=[["Allure 260","Canapea extensibilă · Puma",38200,"p-allure"],["Modus Delfin","Canapea extensibilă · Delfin",29500,"p-delfin"],["Dune","Colțar extensibil · Lampolet",72500,"p-dune"],["Modus Puma","Colțar cu șezlong",34100,"p-puma"],["Loft","Pat tapițat cu mecanism de ridicare",30800,"p-loft"],["Soho","Pat tapițat",26000,"p-soho"],["Cocoon","Fotoliu",18000,"p-cocoon"],["Mollis","Fotoliu",20000,"p-mollis"],["Riposo","Canapea extensibilă · Lampolet",31500,"e-riposo"],["Sienna","Canapea extensibilă · Tic-Tac",28000,"e-sienna"]];
+const fm=n=>n.toLocaleString('ro-RO').replace(/\./g,' ');
+function show(q){const k=q.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');const L=k?D.filter(d=>(d[0]+' '+d[1]).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(k)):D.slice(0,4);
+document.getElementById('rt').textContent=k?`Rezultate pentru „${q}” (${L.length})`:'Populare acum';
+document.getElementById('res').innerHTML=L.length?L.map(d=>`<a class="card" href="product.html"><div class="ph"><img src="img/${d[3]}.webp" alt=""></div><div class="meta"><div><h3>${d[0]}</h3><div class="type">${d[1]}</div></div><div class="price"><small>de la </small>${fm(d[2])} MDL</div></div></a>`).join(''):'<div class="empty">Nimic găsit. Încearcă „extensibilă” sau sună-ne: +373 79 900 027.</div>';}
+document.getElementById('sf').addEventListener('submit',e=>{e.preventDefault();show(document.getElementById('q').value);});
+document.querySelectorAll('.sugg button').forEach(b=>b.onclick=()=>{document.getElementById('q').value=b.textContent;show(b.textContent);});
+show('');
+</script>
+</body>
+</html>

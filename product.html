@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept produs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<style>
+.pdp{display:grid;grid-template-columns:1.45fr 1fr;gap:56px;padding-top:24px;align-items:start}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal figure{margin:0;background:var(--tile);overflow:hidden;aspect-ratio:3/2}
+.gal figure.full{grid-column:span 2}
+.gal figure.tall{aspect-ratio:4/5}
+.gal figure.sq{aspect-ratio:1/1}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal .n{display:none}
+
+.panel{position:sticky;top:100px;display:flex;flex-direction:column;gap:22px}
+.panel h1{font-size:clamp(30px,2.8vw,42px);font-weight:300}
+.panel .sub{color:var(--muted);margin-top:8px}
+.price{font-size:30px;font-weight:300;font-variant-numeric:tabular-nums}
+.price small{font-size:14px;color:var(--muted);display:block;margin-top:4px}
+.keys{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.keys div{padding:14px 0;border-bottom:1px solid var(--line)}
+.keys div:nth-child(odd){padding-right:16px}
+.keys span{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.keys b{font-weight:500;font-size:16px}
+.fabric{display:flex;gap:14px;align-items:center;background:var(--tile);padding:14px 16px}
+.fabric .sw{width:44px;height:44px;flex:none;background:url(img/g-17.webp) center/cover}
+.fabric p{margin:0;font-size:14px}
+.fabric p span{color:var(--muted)}
+.acts{display:grid;gap:10px}
+.acts .row{display:grid;grid-template-columns:1fr auto;gap:10px}
+.fav{width:52px;height:52px;border:1px solid var(--line);background:transparent;display:grid;place-items:center;cursor:pointer}
+.fav svg{width:20px;height:20px;stroke:var(--ink);fill:none;stroke-width:1.4}
+.fav.on svg{fill:var(--ink)}
+.perks{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:14px}
+.perks li{display:flex;gap:12px;align-items:baseline}
+.perks li::before{content:"";width:6px;height:6px;background:var(--accent);flex:none;transform:translateY(-2px)}
+.perks a{border-bottom:1px solid var(--line)}
+
+.blk{padding-top:96px}
+.blk h2{font-size:clamp(28px,2.6vw,40px);font-weight:300}
+.trans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px}
+.trans figure{margin:0}
+.trans .im{aspect-ratio:3/2;background:var(--tile);overflow:hidden}
+.trans img{width:100%;height:100%;object-fit:cover}
+.trans figcaption{display:flex;gap:12px;margin-top:12px;font-size:14px}
+.trans figcaption b{font-weight:500;color:var(--accent)}
+
+.desc{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.desc p{color:var(--muted);margin:0 0 14px;max-width:62ch}
+.desc h2{margin-bottom:20px}
+table.specs{width:100%;border-collapse:collapse;font-size:15px}
+table.specs th,table.specs td{text-align:left;padding:13px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.specs th{font-weight:400;color:var(--muted);width:45%}
+.dims{display:flex;gap:16px;margin-top:28px}
+.dims div{flex:1;background:var(--tile);padding:18px}
+.dims b{display:block;font-size:24px;font-weight:300}
+.dims span{font-size:13px;color:var(--muted)}
+
+.show{background:var(--ink);color:#e9e5e0;margin-top:96px}
+.show .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:64px}
+.show h2{color:#fff}
+.show p{color:#bdb6ae;margin:12px 0 0}
+.show .opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.show .opts div{border-top:1px solid #4a4642;padding-top:14px}
+.show .opts b{color:#fff;font-weight:500;display:block}
+.show .btn{background:#e9e5e0;color:var(--ink);border-color:#e9e5e0;margin-top:24px}
+.show .btn:hover{background:transparent;color:#e9e5e0}
+
+.sim{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
+.mbar{display:none}
+
+@media (max-width:1100px){
+  .pdp{grid-template-columns:1fr;gap:28px;padding-top:12px}
+  .panel{position:static}
+  .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:6px;margin:0 -32px;padding:0 32px;scrollbar-width:none;position:relative}
+  .gal::-webkit-scrollbar{display:none}
+  .gal figure,.gal figure.full,.gal figure.tall,.gal figure.sq{flex:0 0 88%;aspect-ratio:4/3;scroll-snap-align:center}
+  .gal .n{display:block;position:absolute}
+  .desc,.show .wrap{grid-template-columns:1fr;gap:32px}
+  .sim{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .gal{margin:0 -16px;padding:0 16px}
+  .gal figure,.gal figure.full,.gal figure.tall,.gal figure.sq{flex-basis:92%}
+  .crumbs{display:none}
+  .trans{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .trans figcaption{flex-direction:column;gap:2px;font-size:12.5px}
+  .dims{flex-direction:column;gap:8px}
+  .show .opts{grid-template-columns:1fr}
+  .blk{padding-top:64px}
+  .acts .row .btn{height:52px}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--bg);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));gap:12px;align-items:center}
+  .mbar .p{font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .mbar .p small{display:block;font-size:11px;color:var(--muted)}
+  .mbar .btn{flex:1;height:48px}
+  .concept-tag{bottom:84px}
+  footer{padding-bottom:110px}
+}
+.dots{display:none}
+@media (max-width:1100px){
+  .dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
+  .dots i{width:6px;height:6px;background:var(--line);display:block}
+  .dots i.on{background:var(--ink)}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><span class="sr">Creator Mall: </span><b>+373 79 900 027</b> · <span class="sr">Decor Park: </span><b>+373 78 300 027</b></span>
+  <span class="langs"><a class="on" href="#">RO</a><a href="#">RU</a><a href="#">EN</a></span>
+</div></div>
+<header><div class="wrap">
+  <button class="burger" aria-label="Meniu"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  <a class="logo" href="index.html" aria-label="Di'vani"><img src="img/logo.svg" alt="Di'vani"></a>
+  <nav class="main" aria-label="Catalog">
+    <a class="on" href="category.html">Canapele</a><a href="#">Colțare</a><a href="#">Paturi</a><a href="#">Fotolii</a><a href="#">Mese</a><a href="lemn-masiv.html">Lemn masiv</a><a class="hl" href="showroom.html">Showroom-uri</a>
+  </nav>
+  <div class="icons">
+    <svg viewBox="0 0 24 24" aria-label="Căutare"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <svg class="opt" viewBox="0 0 24 24" aria-label="Favorite"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+    <svg viewBox="0 0 24 24" aria-label="Coș"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="crumbs"><a href="index.html">Acasă</a>/<a href="#">Canapele</a>/<a href="category.html">Canapele extensibile</a>/<span>Allure 260</span></div>
+
+  <div class="pdp">
+    <div>
+      <div class="gal" id="gal">
+        <figure class="full"><img src="img/g-01.webp" alt="Canapea extensibilă Allure 260, vedere din față"></figure>
+        <figure><img src="img/g-10.webp" alt="Allure 260 în living"></figure>
+        <figure><img src="img/g-03.webp" alt="Allure 260, extinsă"></figure>
+        <figure class="tall"><img src="img/g-12.webp" alt="Allure 260 în interior"></figure>
+        <figure class="tall"><img src="img/g-14.webp" alt="Allure 260 în interior"></figure>
+        <figure class="sq"><img src="img/g-15.webp" alt="Mecanismul Puma"></figure>
+        <figure class="sq"><img src="img/g-16.webp" alt="Brațul rotunjit al canapelei"></figure>
+      </div>
+      <div class="dots" id="dots"></div>
+    </div>
+
+    <aside class="panel">
+      <div>
+        <span class="eyebrow">Canapea extensibilă · Nou</span>
+        <h1 style="margin-top:10px">Allure 260</h1>
+        <div class="sub">Forme rotunjite, mecanism Puma, pat 190 × 150 cm</div>
+      </div>
+      <div class="price">38 200 MDL<small>sau în rate, vezi condițiile</small></div>
+      <div class="keys">
+        <div><span>Dimensiuni</span><b>260 × 120 cm</b></div>
+        <div><span>Suprafață de dormit</span><b>190 × 150 cm</b></div>
+        <div><span>Mecanism</span><b>Puma premium</b></div>
+        <div><span>Tapițerie</span><b>Stofă</b></div>
+      </div>
+      <div class="fabric"><div class="sw" role="img" aria-label="Mostră tapițerie"></div><p>Culoarea din fotografie<br><span>Alte stofe și culori le vezi în showroom</span></p></div>
+      <div class="acts">
+        <div class="row"><a class="btn" href="cos.html">Adaugă în coș</a><button class="fav" id="fav" aria-label="Adaugă la favorite"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg></button></div>
+        <a class="btn ghost" href="showroom.html#vizita">Încearcă în showroom</a>
+      </div>
+      <ul class="perks">
+        <li><span>Expusă în showroom. <a href="#">Verifică unde</a></span></li>
+        <li><span>Cumpărare în rate. <a href="#">Mobilă în credit</a></span></li>
+        <li><span>Livrare la domiciliu. <a href="#">Detalii livrare</a></span></li>
+        <li><span>Garanție și pașaportul produsului. <a href="#">Vezi</a></span></li>
+      </ul>
+    </aside>
+  </div>
+
+  <section class="blk">
+    <span class="eyebrow">Mecanism Puma</span>
+    <h2 style="margin-top:10px">Din canapea în pat, într-o singură mișcare</h2>
+    <div class="trans">
+      <figure><div class="im"><img src="img/g-04.webp" alt="Canapea închisă"></div><figcaption><b>01</b><span>Canapea, 260 × 120 cm</span></figcaption></figure>
+      <figure><div class="im"><img src="img/g-05.webp" alt="Canapea în timpul extinderii"></div><figcaption><b>02</b><span>Tragi de șezut</span></figcaption></figure>
+      <figure><div class="im"><img src="img/g-06.webp" alt="Canapea extinsă în pat"></div><figcaption><b>03</b><span>Pat, 190 × 150 cm</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="blk desc">
+    <div>
+      <h2>Despre model</h2>
+      <p>Canapeaua extensibilă ALLURE impresionează prin designul contemporan, formele rotunjite și proporțiile generoase. Brațele curbate și liniile verticale care conturează tapițeria îi oferă un aspect distinctiv, transformând-o într-o piesă de accent pentru living.</p>
+      <p>Cu dimensiunile de 260 × 120 cm, ALLURE oferă un spațiu confortabil pentru relaxare, lectură și momente petrecute alături de familie. În poziția extinsă, canapeaua oferă o suprafață de dormit de 190 × 150 cm, potrivită pentru două persoane.</p>
+      <div class="dims">
+        <div><b>260 cm</b><span>lungime</span></div>
+        <div><b>120 cm</b><span>adâncime</span></div>
+        <div><b>190 × 150</b><span>pat, cm</span></div>
+      </div>
+    </div>
+    <div>
+      <h2>Specificații</h2>
+      <table class="specs">
+        <tr><th>Model</th><td>ALLURE</td></tr>
+        <tr><th>Tip produs</th><td>Canapea extensibilă</td></tr>
+        <tr><th>Dimensiuni generale</th><td>260 × 120 cm</td></tr>
+        <tr><th>Suprafață de dormit</th><td>190 × 150 cm</td></tr>
+        <tr><th>Mecanism de extensie</th><td>PUMA premium</td></tr>
+        <tr><th>Proveniența mecanismului</th><td>Produs în Europa</td></tr>
+        <tr><th>Tapițerie</th><td>Stofă</td></tr>
+        <tr><th>Stil</th><td>Modern / contemporan</td></tr>
+        <tr><th>Model 3D</th><td><a class="link" href="#">Descarcă pentru designeri</a></td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+
+<section class="show"><div class="wrap">
+  <div>
+    <h2 style="font-size:clamp(28px,2.6vw,40px);font-weight:300">Stai pe ea înainte să o comanzi</h2>
+    <p>Allure 260 e expusă în showroom. Vino să încerci mecanismul și să alegi stofa.</p>
+    <a class="btn" href="showroom.html#vizita">Programează o vizită</a>
+  </div>
+  <div class="opts">
+    <div><b>Creator Mall</b>Calea Ieșilor 91<br>+373 79 900 027</div>
+    <div><b>Decor Park</b>Nadejda Russo 17<br>+373 78 300 027</div>
+  </div>
+</div></section>
+
+<section class="wrap blk">
+  <h2>Alte canapele extensibile</h2>
+  <div class="sim">
+    <a class="card" href="#"><div class="ph"><img src="img/e-bellisa.webp" alt=""></div><div class="meta"><div><h3>Bellisa</h3><div class="type">Extensibilă · Puma Pro</div></div><div class="price"><small>de la </small>27 800 MDL</div></div></a>
+    <a class="card" href="#"><div class="ph"><img src="img/e-riposo.webp" alt=""></div><div class="meta"><div><h3>Riposo</h3><div class="type">Extensibilă · Lampolet</div></div><div class="price"><small>de la </small>31 500 MDL</div></div></a>
+    <a class="card" href="#"><div class="ph"><img src="img/p-delfin.webp" alt=""></div><div class="meta"><div><h3>Modus Delfin</h3><div class="type">Extensibilă · Delfin</div></div><div class="price"><small>de la </small>29 500 MDL</div></div></a>
+    <a class="card" href="#"><div class="ph"><img src="img/e-allure3.webp" alt=""></div><div class="meta"><div><h3>Allure</h3><div class="type">Extensibilă · 3 mecanisme</div></div><div class="price"><small>de la </small>54 570 MDL</div></div></a>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div><a class="logo" href="index.html" style="display:inline-block"><img src="img/logo.svg" alt="Di'vani"></a><p style="color:var(--muted);max-width:300px">Mobilier tapițat fabricat în Moldova.</p></div>
+  <div><h4>Catalog</h4><ul><li>Canapele</li><li>Canapele extensibile</li><li>Colțare</li><li>Paturi</li><li>Fotolii</li></ul></div>
+  <div><h4>Cumpărători</h4><ul><li><a href="livrare.html#livrare">Livrare</a></li><li><a href="livrare.html#credit">Mobilă în credit</a></li><li><a href="livrare.html#garantie">Returnare și garanție</a></li><li>Pașaportul produsului</li></ul></div>
+  <div><h4>Contacte</h4><ul><li>Creator Mall, Calea Ieșilor 91</li><li>Decor Park, Nadejda Russo 17</li><li>+373 79 900 027</li></ul></div>
+  <div class="copy">© 2026 Di'vani · Concept pagină produs, versiunea 1</div>
+</div></footer>
+
+<div class="mbar"><div class="p">38 200 MDL<small>Allure 260</small></div><a class="btn" href="cos.html">Adaugă în coș</a></div>
+<a class="concept-tag" href="mobile.html">CONCEPT v1 · Mobil →</a>
+
+<script>
+const fav=document.getElementById('fav');fav.onclick=()=>fav.classList.toggle('on');
+const gal=document.getElementById('gal'),dots=document.getElementById('dots'),figs=[...gal.children];
+dots.innerHTML=figs.map((_,i)=>`<i${i?'':' class="on"'}></i>`).join('');
+gal.addEventListener('scroll',()=>{const w=figs[0].offsetWidth+6;const i=Math.round(gal.scrollLeft/w);[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));},{passive:true});
+</script>
+</body>
+</html>

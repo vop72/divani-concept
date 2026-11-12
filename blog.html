@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/pages.css">
+<style>
+.feat{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.feat .im{aspect-ratio:3/2;overflow:hidden;background:var(--tile)}
+.feat .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.feat:hover .im img{transform:scale(1.03)}
+.feat h2{font-size:clamp(28px,2.8vw,42px);font-weight:300;margin:12px 0 14px}
+.meta{font-size:13px;color:var(--muted);display:flex;gap:14px}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 20px;margin-top:40px}
+.post .im{aspect-ratio:3/2;overflow:hidden;background:var(--tile)}
+.post .im img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.post:hover .im img{transform:scale(1.04)}
+.post h3{font-size:19px;font-weight:400;margin:14px 0 8px;line-height:1.3}
+.post p{color:var(--muted);font-size:15px;margin:0}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin:56px 0 0;border-top:1px solid var(--line);padding-top:24px}
+@media (max-width:1100px){.feat{grid-template-columns:1fr;gap:20px}.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.posts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="shell-top"></div>
+<main class="wrap">
+  <div class="crumbs"><a href="index.html">Acasă</a>/<span>Blog</span></div>
+  <div class="page-head">
+    <span class="eyebrow">Blog Di'vani</span>
+    <h1>Ghiduri și idei pentru casă</h1>
+    <p>Cum alegi canapeaua, mecanismul și stofa. Și cum lucrăm noi în atelier.</p>
+  </div>
+
+  <a class="feat" href="articol.html">
+    <div class="im"><img src="img/b-modulare.webp" alt=""></div>
+    <div>
+      <div class="meta"><span>Ghid</span><span>10 martie 2025</span><span>6 min</span></div>
+      <h2>Canapele modulare: soluția universală pentru orice spațiu</h2>
+      <p class="lead">Ce sunt, de unde vin și cum alegi configurația potrivită pentru livingul tău.</p>
+      <span class="link" style="margin-top:16px;display:inline-block">Citește articolul</span>
+    </div>
+  </a>
+
+  <div class="bar">
+    <div class="chips" id="chips"><button class="chip on" data-c="all">Toate</button><button class="chip" data-c="Ghid">Ghiduri</button><button class="chip" data-c="Tendințe">Tendințe</button><button class="chip" data-c="Atelier">Atelier</button></div>
+    <span class="meta">Categoriile sunt o propunere: acum toate articolele sunt în „Articole”.</span>
+  </div>
+
+  <div class="posts" id="posts">
+    <a class="post" data-c="Ghid" href="#"><div class="im"><img src="img/b-alegere.webp" alt=""></div><div class="meta" style="margin-top:14px"><span>Ghid</span><span>7 mai 2024</span></div><h3>Alegerea mobilierului potrivit pentru spațiul dvs.: sfaturi și trucuri</h3></a>
+    <a class="post" data-c="Tendințe" href="#"><div class="im"><img src="img/b-trend25.webp" alt=""></div><div class="meta" style="margin-top:14px"><span>Tendințe</span><span>9 martie 2025</span></div><h3>Tendințele mobilierului în 2025: ce va fi popular în Moldova</h3></a>
+    <a class="post" data-c="Atelier" href="#"><div class="im"><img src="img/b-atelier.webp" alt=""></div><div class="meta" style="margin-top:14px"><span>Atelier</span><span>7 mai 2024</span></div><h3>În culise: o zi din viața unui atelier de mobilier</h3></a>
+    <a class="post" data-c="Ghid" href="#"><div class="im"><img src="img/b-personal.webp" alt=""></div><div class="meta" style="margin-top:14px"><span>Ghid</span><span>7 mai 2024</span></div><h3>Soluții de mobilier personalizat: adaptarea la gusturi unice</h3></a>
+    <a class="post" data-c="Atelier" href="#"><div class="im"><img src="img/b-mester.webp" alt=""></div><div class="meta" style="margin-top:14px"><span>Atelier</span><span>7 mai 2024</span></div><h3>Arta meșteșugului: cum se fabrică mobilierul de calitate</h3></a>
+    <a class="post" data-c="Atelier" href="#"><div class="im"><img src="img/b-concept.webp" alt=""></div><div class="meta" style="margin-top:14px"><span>Atelier</span><span>7 mai 2024</span></div><h3>De la concept la confort: călătoria unei canapele</h3></a>
+  </div>
+</main>
+<div id="shell-foot"></div>
+<script src="js/shell.js"></script>
+<script>
+document.querySelectorAll('#chips .chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('#chips .chip').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('#posts .post').forEach(p=>p.style.display=(b.dataset.c==='all'||p.dataset.c===b.dataset.c)?'':'none');});
+</script>
+</body>
+</html>

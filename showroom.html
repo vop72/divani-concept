@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept showroom-uri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/pages.css">
+<style>
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.room{background:var(--tile);display:grid;grid-template-rows:auto 1fr}
+.room .im{aspect-ratio:16/10;overflow:hidden}
+.room .im img{width:100%;height:100%;object-fit:cover}
+.room .b{padding:28px;display:grid;gap:18px;align-content:start}
+.room h2{font-size:30px;font-weight:300}
+.room .addr{color:var(--muted);margin-top:4px}
+.hours{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.today td{font-weight:500}
+.room .acts{display:flex;gap:10px;flex-wrap:wrap}
+.map{margin-top:16px;height:320px;background:
+  linear-gradient(0deg,transparent 49.6%,#d6d2cd 49.6% 50.4%,transparent 50.4%) 0 0/120px 120px,
+  linear-gradient(90deg,transparent 49.6%,#d6d2cd 49.6% 50.4%,transparent 50.4%) 0 0/120px 120px,#e2dfdb;position:relative;overflow:hidden}
+.map .pin{position:absolute;display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);font-size:13px;padding:8px 12px;transform:translate(-50%,-100%)}
+.map .pin::after{content:"";position:absolute;left:50%;bottom:-6px;border:6px solid transparent;border-top-color:var(--ink);border-bottom:0;transform:translateX(-50%)}
+.map .note{position:absolute;right:12px;bottom:12px;font-size:12px;color:var(--muted);background:var(--bg);padding:4px 8px}
+.book{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.book .why{display:grid;gap:18px;margin-top:28px}
+.book .why div{border-top:1px solid var(--line);padding-top:14px}
+.book .why b{font-weight:500;display:block}
+.book .why span{color:var(--muted);font-size:15px}
+.contact-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.contact-strip div{background:var(--tile);padding:24px}
+.contact-strip span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.contact-strip b{font-weight:400;font-size:20px}
+@media (max-width:1100px){.rooms,.book{grid-template-columns:1fr}.contact-strip{grid-template-columns:1fr}}
+@media (max-width:560px){.room .b{padding:20px}.room .acts .btn{flex:1}}
+</style>
+</head>
+<body>
+<div id="shell-top"></div>
+<main class="wrap">
+  <div class="crumbs"><a href="index.html">Acasă</a>/<span>Showroom-uri</span></div>
+  <div class="page-head">
+    <span class="eyebrow">Showroom-uri în Chișinău</span>
+    <h1>Vino să le încerci</h1>
+    <p>Peste 150 de modele expuse în două showroom-uri. Stai pe ele, desfă mecanismele, alege stofa cu un consultant.</p>
+  </div>
+
+  <div class="rooms">
+    <article class="room">
+      <div class="im"><img src="img/l-velvet.webp" alt="Canapea Di'vani în showroom"></div>
+      <div class="b">
+        <div><h2>Creator Mall</h2><div class="addr">str. Calea Ieșilor 91, etajul 2</div></div>
+        <table class="hours" data-days="0-4:10–19,5-6:10–18">
+          <tr><td>Luni – Vineri</td><td>10:00 – 19:00</td></tr>
+          <tr><td>Sâmbătă – Duminică</td><td>10:00 – 18:00</td></tr>
+        </table>
+        <div class="acts"><a class="btn" href="https://maps.google.com/?q=Calea+Iesilor+91+Chisinau">Traseu</a><a class="btn ghost" href="tel:+37379900027">+373 79 900 027</a></div>
+      </div>
+    </article>
+    <article class="room">
+      <div class="im"><img src="img/l-milan.webp" alt="Canapea modulară Di'vani în showroom"></div>
+      <div class="b">
+        <div><h2>Decor Park</h2><div class="addr">str. Nadejda Russo 17, etajul 2</div></div>
+        <table class="hours">
+          <tr><td>Luni – Sâmbătă</td><td>10:00 – 19:00</td></tr>
+          <tr><td>Duminică</td><td>10:00 – 17:00</td></tr>
+        </table>
+        <div class="acts"><a class="btn" href="https://maps.google.com/?q=Nadejda+Russo+17+Chisinau">Traseu</a><a class="btn ghost" href="tel:+37378300027">+373 78 300 027</a></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="map" role="img" aria-label="Hartă cu cele două showroom-uri">
+    <div class="pin" style="left:30%;top:45%">Creator Mall</div>
+    <div class="pin" style="left:68%;top:62%">Decor Park</div>
+    <span class="note">În site: hartă Google Maps</span>
+  </div>
+
+  <section class="sec book" id="vizita">
+    <div>
+      <span class="eyebrow">Programare</span>
+      <h2 style="margin-top:10px">Programează o vizită</h2>
+      <p class="lead" style="margin-top:14px">Spune-ne ce model te interesează și pregătim mostrele de stofă până vii.</p>
+      <div class="why">
+        <div><b>Mostre de stofă pregătite</b><span>Velur, bouclé, catifea reiată, în culorile pe care le cauți.</span></div>
+        <div><b>Credit pe loc</b><span>Dosarul se completează în showroom, durează în jur de 15 minute.</span></div>
+        <div><b>Comandă la dimensiunile tale</b><span>Discuți cu consultantul modificările de mărime și tapițerie.</span></div>
+      </div>
+    </div>
+    <form class="form" id="f">
+      <div class="two">
+        <label class="field" for="n">Nume<input id="n" required autocomplete="name"></label>
+        <label class="field" for="t">Telefon<input id="t" type="tel" required autocomplete="tel" placeholder="+373"></label>
+      </div>
+      <div class="two">
+        <label class="field" for="s">Showroom<select id="s"><option>Creator Mall</option><option>Decor Park</option></select></label>
+        <label class="field" for="d">Ziua<input id="d" type="date"></label>
+      </div>
+      <label class="field" for="m">Ce model te interesează<input id="m" placeholder="ex. Allure 260, canapea extensibilă"></label>
+      <button class="btn" type="submit">Trimite cererea</button>
+      <div class="ok" id="ok">Mulțumim! Te sunăm pentru a confirma ora vizitei. (Demo: în site, formularul Fluent Forms.)</div>
+    </form>
+  </section>
+
+  <section class="sec">
+    <div class="contact-strip">
+      <div><span>E-mail</span><b>info@divani.md</b></div>
+      <div><span>Creator Mall</span><b>+373 79 900 027</b></div>
+      <div><span>Decor Park</span><b>+373 78 300 027</b></div>
+    </div>
+  </section>
+</main>
+<div id="shell-foot"></div>
+<script src="js/shell.js"></script>
+<script>
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').classList.add('show');});
+</script>
+</body>
+</html>

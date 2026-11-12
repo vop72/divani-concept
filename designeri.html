@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept designeri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css"><link rel="stylesheet" href="css/pages.css">
+<style>
+.dh{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:28px 0 0}
+.dh h1{font-size:clamp(36px,4.2vw,60px);font-weight:300;margin:12px 0 18px}
+.dh .ph-cover{aspect-ratio:4/3}
+.models{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.mdl{background:var(--tile)}
+.mdl .im{aspect-ratio:4/3;overflow:hidden}
+.mdl .im img{width:100%;height:100%;object-fit:cover}
+.mdl .b{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mdl b{font-weight:500}
+.mdl .dl{font-size:13px;font-weight:500;border-bottom:1px solid currentColor}
+.who{display:flex;gap:6px;align-items:center;margin-top:20px;font-size:13px;color:var(--muted)}
+.mdl .im.cut img{width:80%;height:86%}
+.mdl .lock{font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.mdl .lock svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6}
+.mdl .t{font-size:12.5px;color:var(--muted);display:block}
+.chip small{opacity:.6;margin-left:4px}
+.reg{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+@media (max-width:1100px){.dh,.reg{grid-template-columns:1fr;gap:28px}.models{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="shell-top"></div>
+<main class="wrap">
+  <div class="crumbs"><a href="index.html">Acasă</a>/<span>Pentru designeri</span></div>
+  <div class="dh">
+    <div>
+      <span class="eyebrow">Program pentru designeri de interior</span>
+      <h1>Modele 3D gratuite pentru proiectele tale</h1>
+      <p class="lead">Descarcă modelele Di'vani pentru vizualizări, înregistrează-te în program și adu-ți clienții în showroom.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a class="btn" href="#modele">Modele 3D</a><a class="btn ghost" href="#inregistrare">Înregistrare</a></div>
+    </div>
+    <div class="ph-cover"><img src="img/l-hamilton.webp" alt="Pat Hamilton"></div>
+  </div>
+
+  <section class="sec">
+    <div class="steps">
+      <div><b>Te înregistrezi</b><span>Completezi formularul de mai jos.</span></div>
+      <div><b>Primești acces</b><span>Butonul de descărcare apare pe 21 de produse.</span></div>
+      <div><b>Proiectezi</b><span>Folosești piesele Di'vani în vizualizările tale.</span></div>
+      <div><b>Vii cu clientul</b><span>În showroom alegeți împreună stofa și dimensiunile.</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="modele">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap">
+      <div><h2>21 de modele 3D</h2><p class="lead" style="margin-top:8px">Descărcarea e disponibilă după înregistrare.</p></div>
+      <div class="chips" id="chips"><button class="chip on" data-c="all">Toate <small>21</small></button><button class="chip" data-c="c">Canapele <small>11</small></button><button class="chip" data-c="k">Colțare <small>2</small></button><button class="chip" data-c="p">Paturi <small>1</small></button><button class="chip" data-c="m">Măsuțe <small>4</small></button><button class="chip" data-c="s">Scaune <small>3</small></button></div>
+    </div>
+    <div class="who" role="group" aria-label="Demo acces"><span>Demo:</span><button class="chip on" data-w="0">Vizitator</button><button class="chip" data-w="1">Designer înregistrat</button></div>
+    <div class="models" id="models"></div>
+  </section>
+
+  <section class="sec reg" id="inregistrare">
+    <div><span class="eyebrow">Înregistrare</span><h2 style="margin-top:10px">Intră în programul pentru designeri</h2><p class="lead" style="margin-top:14px">Lasă-ne datele tale, iar un manager te contactează cu detaliile colaborării.</p></div>
+    <form class="form" id="f">
+      <div class="two"><label class="field" for="n">Nume<input id="n" required autocomplete="name"></label><label class="field" for="st">Studio / companie<input id="st" autocomplete="organization"></label></div>
+      <div class="two"><label class="field" for="t">Telefon<input id="t" type="tel" required autocomplete="tel"></label><label class="field" for="e">E-mail<input id="e" type="email" required autocomplete="email"></label></div>
+      <label class="field" for="pf">Portofoliu (link)<input id="pf" type="url" placeholder="instagram.com/…"></label>
+      <button class="btn" type="submit">Trimite</button>
+      <div class="ok" id="ok">Mulțumim! Te contactăm în curând. (Demo: în site, formularul de înregistrare existent.)</div>
+    </form>
+  </section>
+</main>
+<div id="shell-foot"></div>
+<script src="js/shell.js"></script>
+<script>
+const M=[["Bubbles","Canapea modulară","c","d-bubbles"],["Milan","Canapea modulară","c","d-milan"],["Soft Stone","Canapea modulară","c","d-softstone"],["Hamilton","Canapea modulară","c","d-hammod"],["Allure","Canapea modulară","c","d-alluremod"],["Vogue","Canapea modulară","c","d-vogue"],["Aria","Canapea extensibilă","c","e-aria"],["Sienna","Canapea extensibilă","c","e-sienna"],["Florența","Canapea","c","e-florenta"],["Nouvelle","Canapea","c","d-nouvelle"],["Bellisa","Canapea","c","e-bellisa"],["Hamilton","Colțar","k","d-hamcol"],["Bellisa","Colțar","k","d-bellisacol"],["Terra","Pat","p","d-terra"],["Eclipse","Măsuță de cafea","m","d-eclipse"],["Luna","Măsuță de cafea","m","d-luna"],["Saturn","Măsuță de cafea","m","d-saturn"],["Element","Măsuță și bancă, stejar și metal","m","d-element",1],["Anvil","Scaun de sufragerie","s","m-anvil",1],["Ellis","Scaun de sufragerie","s","d-ellis",1],["Anvil Ash","Scaun de bar cu spătar","s","d-anvilash",1]];
+let cat="all",reg=0;const lock='<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+function draw(){document.getElementById('models').innerHTML=M.filter(m=>cat==="all"||m[2]===cat).map(m=>`<div class="mdl"><div class="im${m[4]?' cut':''}"><img src="img/${m[3]}.webp" alt="${m[0]}" loading="lazy"></div><div class="b"><div><b>${m[0]}</b><span class="t">${m[1]}</span></div>${reg?'<a class="dl" href="#">Descarcă</a>':`<a class="lock" href="#inregistrare">${lock}Înregistrare</a>`}</div></div>`).join('');}
+document.querySelectorAll('#chips .chip').forEach(b=>b.onclick=()=>{cat=b.dataset.c;document.querySelectorAll('#chips .chip').forEach(x=>x.classList.toggle('on',x===b));draw();});
+document.querySelectorAll('.who .chip').forEach(b=>b.onclick=()=>{reg=+b.dataset.w;document.querySelectorAll('.who .chip').forEach(x=>x.classList.toggle('on',x===b));draw();});
+draw();
+document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').classList.add('show');});
+</script>
+</body>
+</html>

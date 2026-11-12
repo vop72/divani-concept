@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Di'vani — concept homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: liniștit, produsul în prim-plan; plăci pe fundalul studioului, fără rame */
+  --bg:#f5f3f0;        /* fundal pagină, cald, în tonul pozelor de studio */
+  --tile:#e9e7e4;      /* placă produs, ca peretele studioului */
+  --ink:#1e1c1a;
+  --muted:#6f6a65;
+  --line:#dcd8d3;
+  --accent:#9a7650;    /* bronz din aurul actual al brandului, un singur accent */
+  --dark:#1e1c1a;
+  --font:"Rubik", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:400;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-weight:400;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.wrap{max-width:1360px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 26px;font:500 14px/1 var(--font);letter-spacing:.04em;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.link{font-size:14px;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:2px}
+.link:hover{color:var(--accent)}
+.concept-tag{position:fixed;right:16px;bottom:16px;z-index:50;background:var(--ink);color:var(--bg);font-size:12px;padding:8px 12px;letter-spacing:.06em}
+
+/* top bar + header */
+.topbar{background:var(--ink);color:#cfc9c2;font-size:12.5px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:36px;gap:16px}
+.topbar b{color:#fff;font-weight:500}
+.topbar .langs{display:flex;gap:14px}
+.topbar .langs a.on{color:#fff}
+header{position:sticky;top:0;z-index:20;background:rgba(245,243,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:40px;height:76px}
+.logo{display:block;height:72px}
+.logo img{height:100%;width:auto}
+nav.main{display:flex;gap:28px;font-size:15px;flex:1}
+nav.main a{padding:6px 0;border-bottom:1px solid transparent}
+nav.main a:hover{border-color:var(--ink)}
+nav.main a.hl{color:var(--accent)}
+.burger{display:none}
+.icons{display:flex;gap:20px;align-items:center;margin-left:auto}
+.icons svg,.burger svg{width:21px;height:21px;stroke:var(--ink);fill:none;stroke-width:1.4}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;height:calc(100vh - 112px);height:calc(100svh - 112px);min-height:520px;max-height:880px}
+.hero .txt{display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.6vh,28px);padding:clamp(24px,5vh,64px) 64px clamp(24px,5vh,64px) max(32px,calc((100vw - 1360px)/2 + 32px))}
+.hero h1{font-size:clamp(34px,min(4.4vw,7.2vh),66px);font-weight:300}
+.hero p{font-size:18px;color:var(--muted);max-width:460px;margin:0}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero .facts{display:flex;gap:40px;margin-top:clamp(4px,1.5vh,20px);padding-top:clamp(14px,2.4vh,24px);border-top:1px solid var(--line)}
+.hero .facts div{font-size:13px;color:var(--muted)}
+.hero .facts b{display:block;font-size:28px;font-weight:300;color:var(--ink)}
+.hero .pic{position:relative;overflow:hidden;background:var(--tile)}
+.hero .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero .pic .cap{position:absolute;left:24px;bottom:24px;background:var(--bg);padding:12px 16px;font-size:13px;display:flex;gap:16px;align-items:center}
+.hero .pic .cap b{font-weight:500}
+
+section{padding:96px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(30px,3vw,44px);font-weight:300}
+.sec-head p{color:var(--muted);max-width:440px;margin:8px 0 0}
+
+/* bento categories */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:300px;gap:12px}
+.cat{position:relative;background:var(--tile);overflow:hidden;display:flex;flex-direction:column;padding:24px;transition:background .25s}
+.cat:hover{background:#e2dfdb}
+.cat img{flex:1 1 auto;min-height:0;width:calc(100% + 48px);max-width:none;margin:16px -24px -24px;object-fit:cover;object-position:50% 62%;transition:transform .5s}
+.cat:hover img{transform:scale(1.03)}
+.cat .t{position:relative;z-index:1}
+.cat h3{font-size:24px}
+.cat .n{font-size:13px;color:var(--muted);margin-top:4px}
+.cat .go{position:relative;z-index:1;align-self:flex-start;font-size:13px;font-weight:500}
+.cat.big{grid-column:span 2;grid-row:span 2}
+.cat.big h3{font-size:36px;font-weight:300}
+.cat.big img{margin-top:20px}
+.cat.wide{grid-column:span 2}
+.cat.wide{display:block}
+.cat.wide .t{max-width:36%}
+.cat.wide .go{position:absolute;left:24px;bottom:24px}
+.cat.wide img{position:absolute;top:0;right:0;height:100%;width:62%;margin:0}
+.cat .tag{display:inline-block;margin-top:12px;font-size:12px;background:var(--bg);padding:5px 10px}
+
+/* product cards */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 16px}
+.card .ph{background:var(--tile);aspect-ratio:4/3;overflow:hidden;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .ph img{transform:scale(1.04)}
+.card .badge{position:absolute;top:12px;left:12px;background:var(--bg);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px}
+.card .meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px}
+.card h3{font-size:17px;font-weight:500}
+.card .type{font-size:13.5px;color:var(--muted);margin-top:3px}
+.card .price{font-size:15px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.card .price small{color:var(--muted);font-size:12px}
+
+/* sleep feature */
+.feature{background:#ebe8e4}
+.feature .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:center}
+.feature .pic{aspect-ratio:3/2;overflow:hidden}
+.feature .pic img{width:100%;height:100%;object-fit:cover}
+.feature h2{font-size:clamp(30px,3vw,44px);font-weight:300;margin:14px 0 20px}
+.feature p{color:var(--muted);margin:0 0 28px;max-width:520px}
+.mech{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:32px}
+.mech a{background:#ebe8e4;padding:16px 18px;transition:background .2s}
+.mech a:hover{background:var(--bg)}
+.mech b{display:block;font-weight:500}
+.mech span{font-size:13px;color:var(--muted)}
+
+/* interiors */
+.mosaic{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:280px 280px;gap:12px}
+.mosaic figure{margin:0;position:relative;overflow:hidden}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic figure:first-child{grid-row:span 2}
+.mosaic figure:nth-child(2){grid-row:span 2}
+.mosaic figcaption{position:absolute;left:14px;bottom:14px;background:var(--bg);font-size:12.5px;padding:6px 10px}
+
+/* made in moldova */
+.made .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.made h2{font-size:clamp(30px,3vw,44px);font-weight:300}
+.made .pts{display:grid;grid-template-columns:1fr 1fr;gap:36px 32px}
+.made .pts div{border-top:1px solid var(--ink);padding-top:16px}
+.made .pts b{display:block;font-weight:500;margin-bottom:6px}
+.made .pts span{color:var(--muted);font-size:15px}
+
+/* showrooms */
+.show{background:var(--dark);color:#e9e5e0}
+.show .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px}
+.show h2{font-size:clamp(30px,3vw,44px);font-weight:300;color:#fff}
+.show .eyebrow{color:#a39d96}
+.show .s{border-top:1px solid #4a4642;padding-top:20px}
+.show .s h3{font-size:22px;color:#fff;margin-bottom:10px}
+.show .s p{margin:0 0 14px;color:#bdb6ae}
+.show .btn{background:#e9e5e0;color:var(--ink);border-color:#e9e5e0}
+.show .btn:hover{background:transparent;color:#e9e5e0}
+
+/* designers */
+.pro .box{display:grid;grid-template-columns:1fr 1fr;background:var(--tile)}
+.pro .box .t{padding:56px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+.pro h2{font-size:clamp(28px,2.6vw,38px);font-weight:300}
+.pro p{color:var(--muted);margin:0;max-width:460px}
+.pro .box img{width:100%;height:100%;object-fit:cover;min-height:340px}
+
+footer{border-top:1px solid var(--line);padding:56px 0 40px;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+footer h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:0 0 14px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer .copy{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;margin-top:24px;color:var(--muted);font-size:13px}
+
+@media (max-width:1100px){
+  nav.main{display:none}
+  .burger{display:block;background:none;border:0;padding:0;cursor:pointer}
+  header .wrap{gap:16px;height:64px}
+  .logo{height:56px}
+  .hero{grid-template-columns:1fr;grid-template-rows:auto auto;height:auto;min-height:0;max-height:none}
+  .hero .txt{padding:28px 32px 32px;gap:16px}
+  .hero .pic{height:40vh;height:40svh;order:-1}
+  .hero .eyebrow,.hero .facts{display:none}
+  .hero h1{font-size:clamp(30px,6vw,44px)}
+  .hero p{font-size:16px}
+  .hero .ctas .btn{padding:0 18px}
+  .hero .pic .cap{left:12px;bottom:12px}
+  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:260px}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .feature .wrap,.made .wrap,.show .wrap,.pro .box{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:240px 240px 240px}
+  .mosaic figure:first-child{grid-column:span 2;grid-row:auto}
+  .mosaic figure:nth-child(2){grid-row:auto}
+  footer .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .topbar .wrap span.sr{display:none}
+  .bento{grid-template-columns:1fr}
+  .cat.big,.cat.wide{grid-column:auto;grid-row:auto}
+  .cat.big{min-height:420px}
+  .grid4{grid-template-columns:1fr 1fr;gap:20px 10px}
+  .card .meta{flex-direction:column;gap:4px}
+  .mech,.made .pts{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .pro .box .t{padding:32px}
+  .hero .facts{gap:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><span class="sr">Creator Mall: </span><b>+373 79 900 027</b> · <span class="sr">Decor Park: </span><b>+373 78 300 027</b></span>
+  <span class="langs"><a class="on" href="#">RO</a><a href="#">RU</a><a href="#">EN</a></span>
+</div></div>
+
+<header><div class="wrap">
+  <button class="burger" aria-label="Meniu"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  <a class="logo" href="index.html" aria-label="Di'vani"><img src="img/logo.svg" alt="Di'vani"></a>
+  <nav class="main" aria-label="Catalog">
+    <a href="category.html">Canapele</a><a href="#">Colțare</a><a href="#">Paturi</a><a href="#">Fotolii</a><a href="#">Mese</a><a href="lemn-masiv.html">Lemn masiv</a><a class="hl" href="showroom.html">Showroom-uri</a>
+  </nav>
+  <div class="icons">
+    <svg viewBox="0 0 24 24" aria-label="Căutare"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+    <svg viewBox="0 0 24 24" aria-label="Favorite"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+    <svg viewBox="0 0 24 24" aria-label="Coș"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+  </div>
+</div></header>
+
+<div class="hero">
+  <div class="txt">
+    <span class="eyebrow">Fabricat în Chișinău</span>
+    <h1>Mobilier tapițat pentru casa în care chiar trăiești</h1>
+    <p>Canapele, colțare, paturi și fotolii Di'vani. Vino să le încerci în showroom înainte să alegi.</p>
+    <div class="ctas">
+      <a class="btn" href="#">Vezi catalogul</a>
+      <a class="btn ghost" href="showroom.html#vizita">Programează o vizită</a>
+    </div>
+    <div class="facts">
+      <div><b>10+</b>ani de experiență</div>
+      <div><b>150+</b>modele expuse</div>
+      <div><b>2</b>showroom-uri</div>
+    </div>
+  </div>
+  <div class="pic">
+    <img src="img/hero.webp" alt="Canapea Di'vani în lumină naturală">
+    <div class="cap"><span>Colecția <b>2026</b></span><a class="link" href="#">Vezi canapelele</a></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Catalog</span><h2>Alege după cum folosești camera</h2></div>
+      <a class="link" href="#">Tot catalogul</a>
+    </div>
+    <div class="bento">
+      <a class="cat big" href="category.html">
+        <div class="t"><h3>Canapele extensibile</h3><div class="n">Pentru dormit zilnic</div><span class="tag">Puma · Delfin · Tic-Tac · Lampolet</span></div>
+        <img src="img/p-allure.webp" alt="Canapea extensibilă Allure">
+      </a>
+      <a class="cat" href="#"><div class="t"><h3>Colțare</h3><div class="n">30 modele</div></div><img src="img/p-dune.webp" alt="Colțar Dune"></a>
+      <a class="cat" href="#"><div class="t"><h3>Paturi</h3><div class="n">18 modele</div></div><img src="img/p-loft.webp" alt="Pat Loft"></a>
+      <a class="cat" href="#"><div class="t"><h3>Fotolii</h3><div class="n">15 modele</div></div><img src="img/p-cocoon.webp" alt="Fotoliu Cocoon"></a>
+      <a class="cat" href="#"><div class="t"><h3>Canapele modulare</h3><div class="n">Configurezi tu</div></div><img src="img/p-nouvelle.webp" alt="Canapea Nouvelle"></a>
+      <a class="cat wide" href="lemn-masiv.html"><div class="t"><h3>Lemn masiv de frasin</h3><div class="n">Colecțiile Alton și Anvil</div></div><div class="go link">Descoperă</div><img src="img/p-alton.webp" alt="Pat Alton din frasin"></a>
+      <a class="cat wide" href="#"><div class="t"><h3>Măsuțe de cafea</h3><div class="n">Frasin, sticlă, metal</div></div><div class="go link">Descoperă</div><img src="img/p-angoli.webp" alt="Masă de cafea Angoli"></a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Noutăți</span><h2>Modele noi în showroom</h2></div>
+      <a class="link" href="#">Toate noutățile</a>
+    </div>
+    <div class="grid4">
+      <a class="card" href="product.html"><div class="ph"><img src="img/p-allure.webp" alt=""><span class="badge">Nou</span></div><div class="meta"><div><h3>Allure 260</h3><div class="type">Canapea extensibilă · Puma</div></div><div class="price"><small>de la </small>38 200 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/p-gravita.webp" alt=""><span class="badge">Nou</span></div><div class="meta"><div><h3>Gravita</h3><div class="type">Canapea cu reclinere electrice</div></div><div class="price"><small>de la </small>39 800 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/p-dune.webp" alt=""></div><div class="meta"><div><h3>Dune</h3><div class="type">Colțar extensibil · Lampolet</div></div><div class="price"><small>de la </small>72 500 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/p-puma.webp" alt=""></div><div class="meta"><div><h3>Modus Puma</h3><div class="type">Colțar cu șezlong și ladă</div></div><div class="price"><small>de la </small>34 100 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/p-delfin.webp" alt=""></div><div class="meta"><div><h3>Modus Delfin</h3><div class="type">Canapea extensibilă · Delfin</div></div><div class="price"><small>de la </small>29 500 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/p-soho.webp" alt=""></div><div class="meta"><div><h3>Soho</h3><div class="type">Pat tapițat</div></div><div class="price"><small>de la </small>26 000 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/p-mollis.webp" alt=""></div><div class="meta"><div><h3>Mollis</h3><div class="type">Fotoliu</div></div><div class="price"><small>de la </small>20 000 MDL</div></div></a>
+      <a class="card" href="#"><div class="ph"><img src="img/p-angoli.webp" alt=""></div><div class="meta"><div><h3>Angoli</h3><div class="type">Masă de cafea, frasin masiv</div></div><div class="price"><small>de la </small>15 000 MDL</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="wrap">
+    <div class="pic"><img src="img/l-sienna.webp" alt="Canapea Sienna în interior"></div>
+    <div>
+      <span class="eyebrow">Canapele extensibile</span>
+      <h2>O canapea ziua, un pat adevărat noaptea</h2>
+      <p>Alege mecanismul după cât de des dormi pe ea. Pentru oaspeți ajunge un mecanism simplu, pentru somn zilnic contează saltea și o extindere ușoară.</p>
+      <div class="mech">
+        <a href="#"><b>Puma</b><span>Allure, Bellisa, Modus</span></a>
+        <a href="#"><b>Delfin</b><span>Modus Delfin</span></a>
+        <a href="#"><b>Tic-Tac</b><span>Sienna, Soft</span></a>
+        <a href="#"><b>Lampolet (Italia)</b><span>Riposo, Dune</span></a>
+      </div>
+      <a class="btn" href="category.html">Toate canapelele extensibile</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">În interior</span><h2>Cum arată acasă</h2></div>
+      <a class="link" href="#">Mai multe interioare</a>
+    </div>
+    <div class="mosaic">
+      <figure><img src="img/l-green.webp" alt=""><figcaption>Colțar Modus Relax II</figcaption></figure>
+      <figure><img src="img/l-terra.webp" alt=""><figcaption>Pat Terra</figcaption></figure>
+      <figure><img src="img/l-milan.webp" alt=""><figcaption>Canapea modulară Milan</figcaption></figure>
+      <figure><img src="img/l-orange.webp" alt=""></figure>
+    </div>
+  </div>
+</section>
+
+<section class="made" style="padding-top:24px">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Producție proprie</span>
+      <h2 style="margin-top:14px">Proiectat și fabricat în Moldova</h2>
+    </div>
+    <div class="pts">
+      <div><b>Tapițerie la alegere</b><span>Velur, bouclé, catifea reiată. Vezi și atinge mostrele în showroom.</span></div>
+      <div><b>Mecanisme verificate</b><span>Puma, Delfin, Tic-Tac și mecanisme italiene Lampolet.</span></div>
+      <div><b>Garanție și pașaport</b><span>Fiecare produs vine cu pașaportul produsului și condiții clare de garanție.</span></div>
+      <div><b>Livrare și credit</b><span>Livrare la domiciliu și cumpărare în rate.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="show">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Showroom-uri</span>
+      <h2 style="margin:14px 0 24px">Încearcă înainte să alegi</h2>
+      <a class="btn" href="showroom.html#vizita">Programează o vizită</a>
+    </div>
+    <div class="s"><h3>Creator Mall</h3><p>Calea Ieșilor 91, Chișinău</p><p>+373 79 900 027</p><a class="link" href="#">Vezi pe hartă</a></div>
+    <div class="s"><h3>Decor Park</h3><p>str. Nadejda Russo 17, Chișinău</p><p>+373 78 300 027</p><a class="link" href="#">Vezi pe hartă</a></div>
+  </div>
+</section>
+
+<section class="pro">
+  <div class="wrap">
+    <div class="box">
+      <div class="t">
+        <span class="eyebrow">Pentru designeri</span>
+        <h2>Modele 3D gratuite pentru proiectele tale</h2>
+        <p>Descarcă modelele Di'vani pentru vizualizări și înregistrează-te în programul pentru designeri de interior.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="designeri.html#modele">Modele 3D</a><a class="btn ghost" href="designeri.html#inregistrare">Înregistrare designer</a></div>
+      </div>
+      <img src="img/l-hamilton.webp" alt="Pat Hamilton">
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div><a class="logo" href="#" style="display:inline-block"><img src="img/logo.svg" alt="Di'vani"></a><p style="color:var(--muted);max-width:300px">Mobilier tapițat fabricat în Moldova.</p></div>
+  <div><h4>Catalog</h4><ul><li>Canapele</li><li>Canapele extensibile</li><li>Colțare</li><li>Paturi</li><li>Fotolii</li><li>Mese</li><li>Lemn masiv</li></ul></div>
+  <div><h4>Cumpărători</h4><ul><li><a href="livrare.html#livrare">Livrare</a></li><li><a href="livrare.html#credit">Mobilă în credit</a></li><li><a href="livrare.html#garantie">Returnare și garanție</a></li><li>Pașaportul produsului</li><li><a href="blog.html">Blog</a></li></ul></div>
+  <div><h4>Contacte</h4><ul><li>Creator Mall, Calea Ieșilor 91</li><li>Decor Park, Nadejda Russo 17</li><li>+373 79 900 027</li><li>+373 78 300 027</li></ul></div>
+  <div class="copy">© 2026 Di'vani · Concept homepage, versiunea 1</div>
+</div></footer>
+
+<a class="concept-tag" href="mobile.html">CONCEPT v1 · Mobil →</a>
+</body>
+</html>
